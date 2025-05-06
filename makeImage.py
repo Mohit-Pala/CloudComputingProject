@@ -47,12 +47,6 @@ class Generator(nn.Module):
 device = torch.device("cuda:0" if (torch.cuda.is_available() and ngpu > 0) else "cpu")
 netG = Generator(ngpu).to(device)
 
-
-import torch
-import torchvision.utils as vutils
-import matplotlib.pyplot as plt
-import numpy as np
-
 netG = Generator(ngpu).to(device)
 netG.load_state_dict(torch.load('generator_model.pth', map_location=torch.device('cpu')))
 netG.eval()  # Set the model to evaluation mode
