@@ -1,0 +1,22 @@
+<div class="min-h-screen bg-gray-900 flex items-center justify-center p-5">
+  <div class="bg-gray-800 rounded-xl shadow-2xl border border-gray-700 p-8">
+    <div class="flex flex-col items-center gap-6">
+      <div class="w-32 h-32 border-2 border-dashed border-gray-600 flex justify-center items-center bg-gray-700 rounded-lg shadow-inner">
+        <div [innerHTML]="generatedImageTag"></div>
+      </div>
+      <div class="flex flex-col gap-3">
+        <button 
+          (click)="onGenerate()" 
+          class="px-6 py-2.5 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-all shadow-lg">
+          Generate
+        </button>
+        <button 
+          *ngIf="isGenerated" 
+          (click)="onStore()" 
+          class="px-6 py-2.5 text-sm font-medium text-white bg-emerald-600 rounded-lg hover:bg-emerald-700 focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-all shadow-lg">
+          Store
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
