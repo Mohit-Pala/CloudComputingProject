@@ -5,19 +5,20 @@ FROM pytorch/pytorch:latest
 WORKDIR /app
 
 # Copy the backend code into the container
-COPY ./backend /app
+COPY app.py /app
 COPY discriminator_model.pth /app
 COPY generator_model.pth /app
+COPY requirements.txt /app
 
 # Install the Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose the Flask app port 
-EXPOSE 5000
+EXPOSE 8080
 
 # Set environment variables
 ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 
 # Command to run the Flask app
-CMD ["flask", "run"]
+CMD ["python", "app.py"]

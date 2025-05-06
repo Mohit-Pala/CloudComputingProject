@@ -88,6 +88,16 @@ def helloWorld():
     # Convert to base64 string
     img_str = base64.b64encode(buffer.getvalue()).decode('utf-8')
     
+    # Resize to 128x128
+    img_resized = transforms.Resize((128, 128))(img_pil)
+    
+    # Save to BytesIO object
+    buffer = BytesIO()
+    img_resized.save(buffer, format="PNG")
+    
+    # Convert to base64 string
+    img_str = base64.b64encode(buffer.getvalue()).decode('utf-8')
+    
     # Return base64 string in an HTML img tag
     return f'<img src="data:image/png;base64,{img_str}" />'
 
