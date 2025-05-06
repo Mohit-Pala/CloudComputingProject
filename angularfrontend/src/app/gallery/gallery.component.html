@@ -1,0 +1,12 @@
+<div class="min-h-screen bg-gray-900 p-5">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div *ngFor="let image of images" 
+           class="bg-gray-800 rounded-xl shadow-2xl border border-gray-700 p-8">
+        <div class="w-32 h-32 border-2 border-dashed border-gray-600 flex justify-center items-center bg-gray-700 rounded-lg shadow-inner">
+          <div [innerHTML]="image"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
